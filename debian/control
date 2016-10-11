@@ -1,0 +1,20 @@
+Source: qhtmlparser
+Section: libs
+Priority: optional
+Maintainer: Stuart Howarth <showarth@marxoft.co.uk>
+Homepage: https://github.com/marxoft/qhtmlparser
+Build-Depends: debhelper (>= 5), libqt4-dev, libtidy-dev
+
+Package: qhtmlparser
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A Qt/C++ library for parsing and traversing/searching HTML documents.
+ The QHtmlParser library provides classes for parsing and traversing/searching HTML documents
+ using a convenient DOM-ish API.
+ .
+ Full documentation is available at http://marxoft.co.uk/doc/qhtmlparser.
+
+Package: qhtmlparser-dev
+Architecture: any
+Depends: qhtmlparser
+Description: Header files for the QHtmlParser library

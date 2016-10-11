@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+if [ -e /usr/lib/libqhtmlparser.so ]
+    then
+        rm /usr/lib/libqhtmlparser.so
+fi
+
+if [ -e /usr/lib/libqhtmlparser.so.1 ]
+    then
+        rm /usr/lib/libqhtmlparser.so.1
+fi
+
+if [ -e /usr/lib/libqhtmlparser.so.1.0 ]
+    then
+        rm /usr/lib/libqhtmlparser.so.1.0
+fi
+
+if [ -e /usr/lib/libqhtmlparser.so.1.0.0 ]
+    then
+        rm /usr/lib/libqhtmlparser.so.1.0.0
+fi
+
+exit 0
