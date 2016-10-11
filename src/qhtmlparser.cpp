@@ -18,6 +18,7 @@
 #include <tidy.h>
 #include <buffio.h>
 #include <QIODevice>
+#include <QRegExp>
 
 static ctmbstr nodeAttribute(TidyNode node, const QString &name) {
     TidyAttr attr;
@@ -250,7 +251,12 @@ void QHtmlAttributeMatch::setFlags(QHtmlParser::MatchFlags flags) {
 }
 
 void QHtmlAttributeMatch::setFlag(QHtmlParser::MatchFlag flag, bool on) {
-    m_flags.setFlag(flag, on);
+    if (on) {
+        m_flags |= flag;
+    }
+    else {
+        m_flags &= ~flag;
+    }
 }
 
 bool QHtmlAttributeMatch::testFlag(QHtmlParser::MatchFlag flag) const {
