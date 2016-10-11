@@ -16,6 +16,10 @@ SOURCES += \
 headers.files = \
     qhtmlparser.h
 
+maemo5 {
+    INCLUDEPATH += /usr/include/tidy
+}
+
 unix {
     CONFIG += link_prl
     LIBS += -L/usr/lib -ltidy
