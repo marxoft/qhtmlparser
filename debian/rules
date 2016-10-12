@@ -1,7 +1,6 @@
 #!/usr/bin/make -f
 # Uncomment this to turn on verbose mode.
 # export DH_VERBOSE=1
-export LD_LIBRARY_PATH=$(CURDIR)/lib
 
 configure: configure-stamp
 configure-stamp:
@@ -24,7 +23,7 @@ clean:
 	rm -f build-stamp install-stamp
 	dh_clean
 
-install-src:
+install: build
 	cd src && $(MAKE) install
 	mkdir -p debian/qhtmlparser-dev/usr/
 	mkdir -p debian/qhtmlparser-dev/opt/lib/
@@ -33,9 +32,14 @@ install-src:
 	dh_testdir
 	dh_testroot
 	dh_install
-	#dh_installdocs
-	#dh_installchangelogs
-	#dh_compress
+
+# Build architecture-independent files here.
+binary-indep: build install
+
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_install
 	dh_fixperms
 	dh_shlibdeps
 	dh_makeshlibs
@@ -44,10 +48,7 @@ install-src:
 	dh_md5sums
 	dh_builddeb
 
-# Build architecture-independent files here.
-binary-indep: build install-src
 
-binary-arch:
 
-binary: binary-indep
+binary: binary-indep binary-arch
 .PHONY: build clean binary-arch binary-indep binary configure
