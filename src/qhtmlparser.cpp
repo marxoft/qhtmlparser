@@ -170,7 +170,7 @@ static QList<TidyNode> childStartNodes(TidyNode node) {
     TidyNode child;
 
     for (child = childStartNode(node); child; child = nextSiblingStartNode(child)) {
-        nodes << node;
+        nodes << child;
     }
 
     return nodes;
