@@ -98,6 +98,16 @@
  *     // process element
  * }
  * \endcode
+ * 
+ * An alternative way to to achieve the same result is to perform the attribute match using a regular expression 
+ * pattern:
+ *
+ * \code
+ * ...
+ * const QHtmlAttributeMatch regexpMatch("class", "^(foo|bar)$", QHtmlParser::MatchRegExp);
+ * const QHtmlElementList divs = html.elementsByTagName("div", regexpMatch);
+ * ...
+ * \endcode
  *
  * \subsection source Source Code
  *
