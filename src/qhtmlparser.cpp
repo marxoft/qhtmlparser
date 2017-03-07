@@ -706,7 +706,7 @@ QString QHtmlElement::text(bool includeChildElements) const {
     }
     
     if (buffer.bp) {
-        QString text((char*)buffer.bp);
+        QString text = QString::fromUtf8((char*)buffer.bp);
         tidyBufFree(&buffer);
 
         if (text.endsWith("\n")) {
@@ -727,7 +727,7 @@ QString QHtmlElement::toString() const {
     TidyBuffer buffer = TidyBuffer();
     
     if (tidyNodeGetText(d->document, d->node, &buffer)) {
-        QString text((char *)buffer.bp);
+        QString text = QString::fromUtf8((char *)buffer.bp);
         tidyBufFree(&buffer);        
         return text.trimmed();
     }
@@ -775,6 +775,7 @@ public:
         }
         
         document = tidyCreate();
+        tidySetCharEncoding(document, "utf8");
         tidyOptSetBool(document, TidyForceOutput, yes);
         tidyOptSetInt(document, TidyWrapLen, 0);
         tidyOptSetBool(document, TidyQuiet, yes);
@@ -786,7 +787,7 @@ public:
         error = tidyErrorCount(document) > 0;
         
         if (error) {
-            errorString = QString((char*)errorBuffer.bp);
+            errorString = QString::fromUtf8((char*)errorBuffer.bp);
             tidyBufFree(&errorBuffer);
         }
         else {
@@ -921,7 +922,7 @@ QString QHtmlDocument::toString() const {
     TidyBuffer buffer = TidyBuffer();
     
     if (tidySaveBuffer(d->document, &buffer) >= 0) {
-        QString text((char *)buffer.bp);
+        QString text = QString::fromUtf8((char *)buffer.bp);
         tidyBufFree(&buffer);
         return text;
     }
