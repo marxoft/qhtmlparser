@@ -15,6 +15,6 @@ Description: A Qt/C++ library for parsing and traversing/searching HTML document
  Full documentation is available at http://marxoft.co.uk/doc/qhtmlparser.
 
 Package: qhtmlparser-dev
-Architecture: any
+Architecture: all
 Depends: qhtmlparser
 Description: Header files for the QHtmlParser library
