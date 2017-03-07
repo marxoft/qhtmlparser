@@ -1,3 +1,15 @@
+qhtmlparser (0.0.3) unstable; urgency=low
+
+  * Fix encoding errors.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Mon, 06 Mar 2017 19:12:24 +0100
+
+qhtmlparser (0.0.2) unstable; urgency=low
+
+  * Fix retrieval of child start nodes.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sat, 21 Jan 2017 18:35:09 +0100
+
 qhtmlparser (0.0.1) unstable; urgency=low
 
   * Initial release.
