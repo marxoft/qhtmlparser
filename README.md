@@ -1,4 +1,4 @@
-#QHtmlParser
+# QHtmlParser
 
 QHtmlParser is a Qt/C++ library for parsing and traversing/searching HTML documents.
 
