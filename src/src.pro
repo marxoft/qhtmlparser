@@ -17,10 +17,10 @@ headers.files = \
     qhtmlparser.h
 
 maemo5 {
-    INCLUDEPATH += /usr/include/tidy
-}
-
-unix {
+    CONFIG += link_prl
+    LIBS += -L/opt/lib -ltidy-html5
+    INCLUDEPATH += /usr/include/tidy-html5
+} else:unix {
     CONFIG += link_prl
     LIBS += -L/usr/lib -ltidy
 }
